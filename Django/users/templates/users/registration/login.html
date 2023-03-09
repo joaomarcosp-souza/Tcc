@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static  %}
+{% load crispy_forms_tags %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+
+
+<body class="bg-gradient-primary">
+
+    {% block servicos %}
+
+    {% if messages %}
+    {% for message in messages %}
+    <div id="alerttimeout" class="alert alert-success alert-dismissible fade show col-lg-4 mb-5 container fixed-bottom"
+        role="alert">
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message }} </li>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% if form.non_field_errors %}
+    <ul>
+        {% for error in form.non_field_errors %}
+        <div id="errologin" class="alert alert-danger container mt-5 col-lg-4 fixed-top" role="alert">
+            <i class="fas fa-exclamation"></i>
+            {{ error }}
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                                <div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Bem-vindo de volta!</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post">
+                                            {% csrf_token %}
+
+                                            <div id="div_id_username" class="form-group">
+                                                <label for="id_username" class="col-form-label  requiredField">
+                                                    Usuário<span class="asteriskField">*</span>
+                                                </label>
+                                                <div class="">
+                                                    <input type="text" name="username" autofocus=""
+                                                        class="textinput textInput form-control" required=""
+                                                        id="id_username" autocomplete="off">
+                                                    <small id="mask_login_span" class="form-text text-muted"></small>
+                                                </div>
+                                            </div>
+
+                                            <div id="div_id_password" class="form-group">
+                                                <label for="id_password" class="col-form-label  requiredField">
+                                                    Senha<span class="asteriskField">*</span>
+                                                </label>
+                                                <div class="input-group">
+                                                    <input type="password" name="password"
+                                                        class="textinput textInput form-control" required=""
+                                                        id="id_password">
+                                                    <div class="input-group-append" id="btn-ver-senha"
+                                                        style="cursor: pointer;">
+                                                        <span class="input-group-text">
+                                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="mt-5">
+                                                <button class="text-center botao" type="submit"
+                                                    class="btn btn-dark">Entrar</button>
+                                            </div>
+                                            <hr>
+                                            <a id="google-plus-button" href="{% url 'social:begin' 'google-oauth2' %}"
+                                                class="btn btn-google btn-user btn-block">
+                                                <i class="fab fa-google fa-fw"></i> Entrar com Google
+                                            </a>
+                                            <a href="{% url 'social:begin' 'facebook' %}"
+                                                class="btn btn-facebook btn-user btn-block">
+                                                <i class="fab fa-facebook-f fa-fw"></i> Entrar com Facebook
+                                            </a>
+                                        </form>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="{% url 'password_reset' %}">Esqueceu a senha?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="{% url 'register' %}">Criar Conta!</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="{% static '/vendor/jquery/jquery.js' %}"></script>
+    <script src="{% static '/vendor/jquery-easing/jquery.easing.js' %}"></script>
+    <script src="{% static 'js/senhamostrar.js' %}"></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+
+</body>
+
+
+{% endblock servicos %}
+
+{% block header %}
+{% endblock header %}
+
+{% block sugestao %}
+{% endblock sugestao %}
+
+{% block footer %}
+{% endblock footer %}

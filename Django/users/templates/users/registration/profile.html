@@ -1,0 +1,95 @@
+{% extends "modelo.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block conteudo %}
+
+<div class="content container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title text-center">Dados da Conta</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ u_form|crispy }}
+                            <div class="card-header">
+                                <h5 class="title text-center">Informações Pessoais</h5>
+                            </div>
+                            {{ p_form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-success" type="submit">Atualizar</button>
+                            <a href="{% url 'dash' %}" class="btn btn-outline-dark">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-user">
+                <div class="card-body">
+                    <p class="card-text">
+                        <div class="author">
+                            <div class="block block-one"></div>
+                            <div class="block block-two"></div>
+                            <div class="block block-three"></div>
+                            <div class="block block-four"></div>
+
+                            <img class="img-fluid img-thumbnail rounded mx-auto d-block"
+                                src="{{ user.profile.image.url }}" alt="">
+
+                            <p class="title text-center"><strong>Nome Usuario :</strong> {{ user.username }}
+                            <p class="description text-center">
+                                <strong>Email :</strong> {{ user.email }}
+                            </p>
+                            <p class="description text-center">
+                                <strong>Data de inscrição :</strong> {{ user.date_joined }}
+                            </p>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static '/vendor/jquery/jquery.js' %}"></script>
+<script src="{% static '/vendor/jquery-easing/jquery.easing.js' %}"></script>
+<script src="{% static 'js/darkboard/black-dashboard.js' %}"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+        // $('.time').mask('00:00:00');
+        // $('input[type=date]').mask('00/00/0000');
+        $('input[type=datetime]').mask('00/00/0000 00:00:00');
+
+        $('#id_cpf').mask('000.000.000-00');
+        $('#id_rg').mask('000.000.000-0', { reverse: true });
+
+        var SPMaskBehavior = function (val) {
+            return val.replace(/\D/g, '').length === 11 ? '(00) 0 0000-0000' : '(00) 0000-00009';
+        },
+            spOptions = {
+                onKeyPress: function (val, e, field, options) {
+                    field.mask(SPMaskBehavior.apply({}, arguments), options);
+                }
+            };
+
+        $('input[name*=telefone]').mask(SPMaskBehavior, spOptions);
+        $("input[id*=data]").attr("type", "date");
+        $("input[type=cpf").mask('000.000.000-00');
+
+        $('input[name*=start_time]').mask('00/00/0000 00:00:00');
+        $('input[name*=end_time]').mask('00/00/0000 00:00:00');
+
+    });
+</script>
+
+
+{% endblock conteudo %}

@@ -1,0 +1,109 @@
+{% extends 'modelo.html' %}
+{% block conteudo %}
+{% load static %}
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    Painel de controle</a>
+  </li>
+  <li class="breadcrumb-item active"> Cadastrado em: {{ user.date_joined }}</li>
+  <div class="row right">
+    <a class="btn btn-outline-success right ml-5" href="{% url 'ajuda' %}">ajuda</a>
+  </div>
+</ol>
+
+
+
+<div class="container-fluid ">
+  <div class="row">
+
+    <!-- ####################### CARD ANIMAIS  #################################### -->
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-5 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Animais :</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ animais }}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-horse fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ####################### CARD ALIMENTO  #################################### -->
+    <div class="col-xl-3 col-md-5 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Pereciveis :</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ alimento }}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-apple-alt fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ####################### CARD MEDICAMENTO  #################################### -->
+    <div class="col-xl-3 col-md-5 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Medicamentos :</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ medicamento }}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-syringe fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="list-group">
+        <a class="list-group-item list-group-item-success">
+          Funções Rapidas <i class="fas fa-bell"></i>
+        </a>
+        <a href="{% url 'cadastroAnimal' %}" class="list-group-item list-group-item-action">Adicionar Animal <i
+            class="fas fa-plus-circle"></i></a>
+        <a href="{% url 'detalheRelatorio' %}" class="list-group-item list-group-item-action">Relatorios <i
+            class="far fa-file-word"></i> </a>
+        <a href="{% url 'cadastroPesagem' %}" class="list-group-item list-group-item-action">Pesagem <i
+            class="fas fa-balance-scale"></i> </a>
+        <a href="{% url 'cadastroVacinacao' %}" class="list-group-item list-group-item-action">Vacinar <i
+            class="fas fa-syringe"></i> </a>
+      </div>
+    </div>
+  </div>
+  <!-- ####################### FUNÇÕES RAPIDAS  #################################### -->
+
+  <!-- ####################### BOTÕES CALENDARIO #################################### -->
+  <br>
+  <div class="">
+    <div class="card-header text-center">
+      <h4>Agenda e Tarefas</h4>
+    </div>
+    <div class="card-body">
+      <div class="clearfix text-center">
+        <div class="clearfix">
+          <a class="btn btn-outline-success m-1" href="{% url 'cal:calendar' %}?{{ prev_month }}"> Mês anterior </a>
+          <a class="btn btn-outline-success m-1" href="{% url 'cal:calendar' %}"> Hoje</a>
+          <a class="btn btn-outline-success m-1" href="{% url 'cal:event_new' %}"> Novo evento </a>
+          <a class="btn btn-outline-success  m-1" href="{% url 'cal:calendar' %}?{{ next_month }}"> Próximo mês </a>
+        </div>
+      </div>
+      {{ calendar }}
+    </div>
+  </div>
+  {% endblock %}
+
+  <!-- ####################### BOTÕES CALENDARIO #################################### -->

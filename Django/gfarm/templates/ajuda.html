@@ -1,0 +1,101 @@
+{% extends 'modelo.html' %}
+
+{% block conteudo %}
+
+<div class="content ml-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title text-center">Cadastros Principais</h5>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <b>1.1 Fazenda:</b> São as fazendas que o proprietário possui em seu nome,
+                        é que gostaria de fazer o gerenciamento dos seu estoque, funcionários, e animais presentes na mesma.
+
+                    </p>
+                    <p>
+                        <a class="btn btn-outline-success" href="{% url 'cadastroFazenda' %}">Acessar</a>
+                    </p>
+                    <p>
+                        <b>1.2 Pessoa:</b> Aqui são informados os funcionários, 
+                        fornecedores, veterinários e coloboradores.
+                        Disponível para todas as propriedades ou para alguma em específico.
+                    </p>
+                    <p>
+                        <a class="btn btn-outline-success" href="{% url 'cadastroPessoa' %}">Acessar</a>
+                    </p>
+                    <p>
+                        <b>1.3 Animal:</b> São os animais que você
+                        administra em sua fazenda.
+                    </p>
+                    <p>
+                        <a class="btn btn-outline-success" href="{% url 'cadastroAnimal' %}">Acessar</a>
+                    </p>
+                
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 mr-1">
+            <div class="card card-user">
+                <div class="card-header">
+                    <h5 class="title text-center">Cadastro Secundarios</h5>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <b>1.1 Frações de Terra:</b> São os campos e piquetes em que
+                        os animais ficam separados, é necessário ter pelo menos um
+                        cadastrado. Os campos são vinculados a uma propriedade, ao
+                        cadastrar o campo, automaticamente fica disponível na
+                        propriedade selecionada.
+                    </p>
+                    <p>
+                        <a class="btn btn-outline-success" href=#>Acessar</a>
+                    </p>
+                    <p>
+                        <b>1.2 Meus Contatos:</b> Aqui são informados os compradores e
+                        fornecedores. Estes podem ser relacionados a animais, produtos
+                        ou medicamentos, todos ficam cadastrados aqui, ficando
+                        disponível para todas as propriedades.
+                    </p>
+                    <p>
+                        <a class="btn btn-outline-success" href=#>Acessar</a>
+                    </p>
+                    <p>
+                        <b>1.3 Espécies:</b> São as espécies de animais que você
+                        administra em sua fazenda, é utilizado para cadastrar e
+                        organizar seus animais.
+                    </p>
+                    <p>
+                        <a class="btn btn-outline-success" href=#>Acessar</a>
+                    </p>
+                    <p>
+                        <b>1.4 Raças:</b> São as raças dos animais, vinculadas a uma
+                        espécie.
+                    </p>
+                    <p>
+                        <a class="btn btn-outline-success" href=#>Acessar</a>
+                    </p>
+                    <p>
+                        <b>1.5 Categorias:</b> As categorias, assim com as raças são
+                        vinculadas a uma espécie. As categorias evoluem de acordo com
+                        a idade do animal, pode ser configurado para que os animais se
+                        atualizem automaticamente, desta forma a evolução dos animais
+                        ocorre de forma automática indicando a nova categoria.
+                    </p>
+                    <p>
+                        <a class="btn btn-outline-success" href=#>Acessar</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+    {% endblock %}

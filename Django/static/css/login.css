@@ -1,0 +1,46 @@
+
+.botao 
+{
+	background-color: white;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	border: 2px solid #c0b283;
+	cursor: pointer;
+	color:black;
+	font-size: 12px;
+	padding: 14px 31px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+}
+
+.botao:hover 
+{
+	background-color:#c0b283;
+}
+
+.botao:active 
+{
+	position: relative;
+	top: 1px;
+}
+.img
+{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+}
+.text
+{
+	font-size: 40px;
+	text-align: center;
+}
+
+ul{
+	list-style: none;
+}
+
+a{
+	color: #c0b283;
+}

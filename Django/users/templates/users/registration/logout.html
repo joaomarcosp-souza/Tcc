@@ -1,0 +1,42 @@
+{% load static %}
+<link rel="icon" href="http://pngimg.com/uploads/letter_g/letter_g_PNG18.png" type="image/x-icon" />
+<!-- Custom fonts for this template-->
+<link href="{% static 'vendor/fontawesome-free/css/all.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/sb-admin-2.css' %}" rel="stylesheet">
+<!-- Links Para o Full Calender -->
+<link href="{% static 'js/calendario/core/main.css' %}" rel='stylesheet' />
+<link href="{% static 'js/calendario/daygrid/main.css' %}" rel='stylesheet' />
+<link href="{% static 'js/calendario/timeGrid/main.css' %}" rel='stylesheet' />
+
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<!-- Tabela DATATABLE -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.css" />
+<!-- Tabela DATATABLE Bootstrap-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/r-2.2.2/datatables.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<div class="container o-hidden border-0 shadow-lg my-5">
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">
+            <h2>Deslogado com sucesso.</h2>
+            <hr>
+            <p class="sub-title"> Deseja logar novamente?</p>
+        </h1>
+    </div>
+    <div class="modal-body">
+        <form method="post">
+            <div class="text-center">
+                <a class="btn btn-outline-success" href="{% url 'login' %}">Sim</a>
+                <a class="btn btn-outline-dark" href="{% url 'index' %}">Não</a>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,44 @@
+{% extends 'modelo.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+Evento
+{% endblock %}
+
+{% if form.non_field_errors %}
+    <ul>
+        {% for error in form.non_field_errors %}
+        <div id="errologin" class="alert alert-danger container mt-5 col-lg-4 fixed-top" role="alert">
+            <i class="fas fa-exclamation"></i>
+            {{ error }}
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+{% block conteudo %}
+
+<div class="card border-light container ">
+  <div class="card-body">
+      <div class="container py">
+          <h2 class="border-bottom">
+             Tarefa
+          </h2>
+          <p class="text-muted">* Preencha todos os campos obrigatórios.</p>
+          <div class="row">
+              <div class="col-md">
+                  {% crispy form %}
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block script %}
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+<script src="{% static 'js/mascaras.js' %}"></script>
+
+{% endblock %}

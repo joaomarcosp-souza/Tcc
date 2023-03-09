@@ -1,0 +1,206 @@
+{% extends 'modelo.html' %}
+
+{% block conteudo %}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        Informações do historico do animal</a>
+    </li>
+    <li class="breadcrumb-item active">{{object}}</td>
+    </li>
+</ol>
+
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+            aria-controls="nav-home" aria-selected="true">Perfil</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+            aria-controls="nav-profile" aria-selected="false">Pesagens</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+            aria-controls="nav-contact" aria-selected="false">Vacinações</a>
+        <a class="nav-item nav-link" id="nav-movi-tab" data-toggle="tab" href="#nav-movi" role="tab"
+            aria-controls="nav-movi" aria-selected="false">Movimentações</a>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="container py-5">
+            <!-- ======================================================================================= -->
+            <h4 class="border-bottom border-top p-1 text-center bg-light">Dados do Animal</h4>
+
+            <div class="row">
+                <div class="col-md-2 font-weight-bold">
+                    Identificação:
+                </div>
+                <div class="col-md">
+                    {{object.identificacao}}
+                </div>
+            </div>
+
+
+            <div class="row my-1">
+                <div class="col-md-2 font-weight-bold">
+                    Marcação:
+                </div>
+                <div class="col-md">
+                    {{object.marcacao}}
+                </div>
+
+                <div class="col-md-2 font-weight-bold">
+                    Sexo:
+                </div>
+                <div class="col-md">
+                    {{object.sexo}}
+                </div>
+            </div>
+
+
+            <div class="row my-1">
+                <div class="col-md-2 font-weight-bold">
+                    Data Nascimento:
+                </div>
+                <div class="col-md">
+                    {{object.dataNascimento}}
+                </div>
+
+                <div class="col-md-2 font-weight-bold">
+                    Raça:
+                </div>
+                <div class="col-md">
+                    {{object.raca}}
+                </div>
+            </div>
+
+
+            <div class="row my-1">
+                <div class="col-md-2 font-weight-bold">
+                    Categoria:
+                </div>
+                <div class="col-md">
+                    {{object.categoria}}
+                </div>
+
+                <div class="col-md-2 font-weight-bold">
+                    Pelagem:
+                </div>
+                <div class="col-md">
+                    {{object.pelagem}}
+                </div>
+            </div>
+
+            <div class="row my-1">
+                <div class="col-md-2 font-weight-bold">
+                    Fazenda:
+                </div>
+                <div class="col-md">
+                    {{object.nome}}
+                </div>
+            </div>
+
+            <div class="row my-1 mt-5">
+                <div class="col-md-2 font-weight-bold">
+                    Pesagens Total:
+                </div>
+                <div class="col-md">
+                    {{pesagemTotal}}
+                </div>
+
+                <div class="col-md-2 font-weight-bold">
+                    Vacinas Total:
+                </div>
+                <div class="col-md">
+                    {{vacinaTotal}}
+                </div>
+                <div class="col-md-2 font-weight-bold">
+                    Movimentações Feitas:
+                </div>
+                <div class="col-md">
+                    {{MovimentacaoTotal}}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+        <h4 class="text-center mt-5">Pesagens</h4>
+        <div class="card card-body">
+            <table id="example" class="table table-striped table-bordered mt-5 display responsive nowrap example"
+                style="width: 100%">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Data</th>
+                        <th>Peso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in pesagem %}
+                    <tr>
+                        <td>{{obj.dataPesagem}}</td>
+                        <td>{{obj.peso}}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <h4 class="text-center mt-5">Vacinas</h4>
+        <div class="card card-body">
+
+            <table id="example2" class="table table-striped table-bordered mt-5 display responsive nowrap example"
+                style="width: 100%">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Data Vacina</th>
+                        <th>Data Vencimento</th>
+                        <th>Medicamento Aplicado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in vacina %}
+                    <tr>
+                        <td>{{obj.dataVacina}}</td>
+                        <td>{{obj.dataVencimento}}</td>
+                        <td>{{obj.medicamento}}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="nav-movi" role="tabpanel" aria-labelledby="nav-movi-tab">
+        <h4 class="text-center mt-5">Movimentações Realizadas</h4>
+        <div class="card card-body">
+
+            <table id="example3" class="table table-striped table-bordered mt-5 display responsive nowrap example"
+                style="width: 100%">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Data</th>
+                        <th>Animal</th>
+                        <th>Fazenda Origem</th>
+                        <th>Fazenda Destino</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in Movimentacao %}
+                    <tr>
+                        <td>{{obj.data}}</td>
+                        <td>{{obj.animal}}</td>
+                        <td>{{obj.fazenda_origem}}</td>
+                        <td>{{obj.fazenda_destino}}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

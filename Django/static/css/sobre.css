@@ -1,0 +1,19 @@
+body{
+    background: black;
+  }
+  .bg-cinza-claro{
+    background: #212529;
+    Color: white;
+    border-radius: 40px;
+    box-shadow: #212529;
+  }
+  .centro{
+    text-align: center;
+    font-family: 'Montserrat'
+  }
+  .diagrama{
+    background: #212529;
+    border: 1pz 1px 1px 1px ;
+    Color: white;
+    border-radius: 150px;
+  }

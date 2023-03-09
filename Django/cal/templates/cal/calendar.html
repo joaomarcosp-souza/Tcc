@@ -1,0 +1,32 @@
+{% extends 'dashboard.html' %}
+
+{% block title %}
+Calendario
+{% endblock %}
+
+
+
+{% if messages %}
+{% for message in messages %}
+<div id="alerttimeout" class="alert alert-success alert-dismissible fade show col-lg-4 container fixed-bottom"
+    role="alert">
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message }} </li>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+
+{% block conteudo %}
+<div class="clearfix">
+	<a class="btn btn-outline-success left" href="{% url 'cal:calendar' %}?{{ prev_month }}"> Mês anterior </a>
+	<a class="btn btn-outline-success right" href="{% url 'cal:calendar' %}?{{ next_month }}"> Próximo mês </a>
+	<a class="btn btn-outline-success left" href="{% url 'cal:event_new' %}"> Novo evento </a>
+</div>
+
+
+
+{{ calendar }}
+
+{% endblock %}

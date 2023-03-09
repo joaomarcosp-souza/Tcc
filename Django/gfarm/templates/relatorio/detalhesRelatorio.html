@@ -1,0 +1,113 @@
+{% extends 'modelo.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block conteudo %}
+
+<div class="container o-hidden border-0 shadow-lg my-5">
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">
+            <h2>Relatorio.</h2>
+            <hr>
+            <p class="sub-title"> Detalhes para a geração da página de Relatório</p>
+        </h1>
+    </div>
+    <div class="modal-body table-responsive">
+        <table class="border table mt-5 display responsive" style="width: 100%">
+            <thead class="">
+                <h3 class="text-center">Informações Importantes</h3>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <li class="ml-4">Ná página seguinte estão todas as informações necessarias para gerar o
+                            relatorio;</li>
+                    </td>
+                    <td>
+                        <li class="ml-4">Ctrl + P: para imprimir a página;</li>
+                    </td>
+                    <td>
+                        <li class="ml-4">Use o atalho mencionado ao lado para salvar a página e a salvar como PDF para
+                            ser utilizada como relatorio;</li>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container o-hidden border-0 shadow-lg my-5 border table">
+        <h2 class="text-center">Escolha uma das fazendas abaixo para gerar o relatorio</h2>
+    </div>
+
+
+    <div class="card card-body table-responsive pr-2">
+        <table class="table table-striped table-bordered mt-5 display responsive nowrap" style="width: 100%">
+            <thead class="thead-light">
+                <tr>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Hectares</th>
+                    <th>Relatorio Geral</th>
+                    <th>Relatorio Pesagem</th>
+                    <th>Relatorio Vacinação</th>
+                    <th>Relatorio Animais</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fazenda in object_list %}
+                <tr>
+                    <td>{{fazenda.nome}}</td>
+                    <td>{{fazenda.endereco}}</td>
+                    <td>{{fazenda.hectares}}</td>
+                    <td>
+                        <a title="Alterar" class="btn btn-outline-primary"
+                            href="{% url 'relatorioFazenda' fazenda.id %}">
+                            <i class="fas fa-file"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a title="Relatorio Pesagem" class="btn btn-outline-warning"
+                            href="{% url 'relatorioPesagem' fazenda.id %}">
+                            <i class="fas fa-file"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a title="Relatorio Vacinação" class="btn btn-outline-info"
+                            href="{% url 'relatorioVacina' fazenda.id %}">
+                            <i class="fas fa-file"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a title="Relatorio Animal" class="btn btn-outline-success"
+                            href="{% url 'relatorioAnimal' fazenda.id %}">
+                            <i class="fas fa-file"></i>
+                        </a>
+                    </td>
+                    {% empty %}
+                <tr>
+                    <td colspan="3">Nenhuma Fazenda cadastrada!</td>
+                </tr>
+
+                {% endfor %}
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="modal-body">
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block header %}
+{% endblock header %}
+
+{% block footer %}
+{% endblock footer %}
+
+{% block script %}
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+<script src="{% static 'js/mascaras.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,224 @@
+<!-- repete o código do bloco pai -->
+{{ block.super }}
+{% load static %}
+
+<!-- Vamos reescrever esse bloco -->
+
+
+<!-- Vamos extender o template base -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Gfarm</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static '/vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="icon" href="http://pngimg.com/uploads/letter_g/letter_g_PNG18.png" type="image/x-icon" />
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static '/css/agency.css' %}" rel="stylesheet">
+    <link href="{% static '/css/base.css' %}" rel="stylesheet">
+    <link href="{% static '/css/login.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    {% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark fixed" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Gfarm</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="{% url 'index' %}">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="{% url 'mensagem' %}">Contato</a>
+                    </li>
+
+
+                    <li class="btn-entrar ml-2 mt-1">
+                        <a href="{% url 'login' %}"><i class=""></i> Entrar</a>
+                    </li>
+
+                    <li class="btn-entrar ml-2 mt-1">
+                        <a href="{% url 'register' %}"><i class=""></i> Registre-se</a>
+
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block header %}
+    <!-- Header -->
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Gerencie suas Fazendas pelo seu smartphone!</div>
+                <div class="intro-heading text-uppercase">Bem vindo.</div>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
+
+
+    {% block servicos %}
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Serviços</h2>
+                    <h3 class="section-subheading text-muted">Serviços disponiveis no nosso Software.</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-sign fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Gerencie sua Fazenda</h4>
+                    <p class="text-muted">Gerencie suas fazendas . Controle dos animais por ficha individual,compra e
+                        venda de animais, Funcionários e Colaboradores.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-notes-medical fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Gerencie o Historico Medico</h4>
+                    <p class="text-muted">Histórico de medicamentos aplicados e exames efetuados, tipo de vacina.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-text-height fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Gerenciar a Pesagem do Animal</h4>
+                    <p class="text-muted">Tenha controle sobre a pesagem dos seus animais, com pesagem individual ou em
+                        grupo, diariamente ou semanlmente.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-warehouse fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Entrada e Saida de Itens</h4>
+                    <p class="text-muted">Controle sobre estoque de vacinas, produtos, alimentos e sêmen, tenha mais
+                        informações sobre entradas e saídas com um controle de estoque mais eficiente.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-copy fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Relatórios</h4>
+                    <p class="text-muted">Tenha Relatórios sobre os itens mencinados acima</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+
+    {% block footer %}
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright"><strong>Copyright &copy; Gfarm 2019</strong></span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="https://twitter.com/joao12308">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com/joaomarcosPereir4">
+                                <i id="back-icon" class="fab fa-facebook" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/jo%C3%A3o-marcos-715b65185/">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://github.com/kur0s4k1">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item linkcolor">
+                            <a href="#">Policticas de Privacidade</a>
+                        </li>
+                        <li class="list-inline-item linkcolor">
+                            <a href="#">Termos de Uso</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <a id="subirTopo">
+            <i class="fas fa-long-arrow-alt-up"></i>
+        </a>
+
+    </footer>
+
+    {% endblock %}
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.js' %}"></script>
+    <script src="{% static 'js/sb-admin-2.js' %}"></script>
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.js' %}"></script>
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/agency.js' %}"></script>
+    <script src="{% static 'js/subirTopo.js' %}"></script>
+
+    {% block script %} {% endblock %}
+
+</body>
+
+</html>

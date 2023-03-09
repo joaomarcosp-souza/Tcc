@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block servicos %}
+
+
+
+{% if messages %}
+{% for message in messages %}
+<div id="alerttimeout" class="alert alert-success alert-dismissible fade show col-lg-4 container fixed-bottom"
+    role="alert">
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message }} </li>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="card border-light container ">
+    <div class="card-body">
+        <div class="container py">
+            <h2 class="border-bottom">
+                {{ titulo }}
+            </h2>
+            <p class="text-muted">*Preencha todos os campos obrigatórios.</p>
+            <p class="text-muted">Envie sua dúvida e sugestões preenchendo os campos do formulário abaixo.</p>
+            <div class="row">
+                <div class="col-md">
+                    {% crispy form %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card border-light container ">
+    <div class="card-body">
+        <div class="container py">
+            <div class=container>
+                <div class="row text-center">
+                    <div class=col-sm-4>
+                        <div class=contact-detail-box>
+                            <i class="fa fa-laptop" aria-hidden="true"></i>
+                            <h4>Contato</h4>
+
+                            WhatsApp/Fone: <a href="https://api.whatsapp.com/send?1=pt_BR&phone=555499128615"
+                                target=blank>(44)123456789</a><br>
+                            Email: <a href="mailto:contato@a3pecuaria.com.br" class=text-muted>suporte@gfarm.com.br</a>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class=col-sm-4>
+                        <div class=contact-detail-box>
+                            <i class="fa fa-map-marker"></i>
+                            <h4>Onde Estamos</h4>
+                            <address>
+                                Paranavaí - PR<br>
+                            </address>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class=col-sm-4>
+                        <div class=contact-detail-box>
+                            <i class="fa fa-headphones" aria-hidden="true"></i>
+                            <h4>24/7 Suporte</h4>
+                            Nos contate
+
+                        </div>
+                    </div><!-- end col -->
+
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block header %}
+{% endblock header %}
+
+{% block footer %}
+{% endblock footer %}
+
+{% block script %}
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+<script src="{% static 'js/mascaras.js' %}"></script>
+
+<script>
+$(document).ready(function () {
+    
+    var num1 = Math.floor(Math.random() * 10)+1; 
+    var num2 = Math.floor(Math.random() * 10)+1; 
+
+    $("label[for='id_soma'").text(num1 + " + " + num2 + " é igual a?");
+
+    $("form").submit(function (e) { 
+        
+        var soma = parseInt(  $("#id_soma").val() );
+
+        if(soma != (num1+num2)){
+            e.preventDefault();
+            alert("A soma está errada. Verifique os números novamente...");
+        }
+        
+    });
+
+});
+</script>
+
+{% endblock %}
